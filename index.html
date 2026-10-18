@@ -1,0 +1,1645 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Gunnu - Dec 22 Celebration</title>
+  <meta name="description" content="A magical, animated birthday wonderland celebration for Gunnu with dynamic countdown to midnight, heartfelt letters, cake cutting, and sparkling fireworks." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* CSS Reset & Variables */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    :root {
+      --bg: #0b0314;
+      --rose-50: #fff1f2;
+      --rose-100: #ffe4e6;
+      --rose-200: #fecdd3;
+      --rose-300: #fda4af;
+      --rose-400: #fb7185;
+      --rose-500: #f43f5e;
+      --rose-600: #e11d48;
+      --amber-300: #fde047;
+      --amber-400: #facc15;
+      --purple-400: #c084fc;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-script: 'Great Vibes', cursive;
+      --font-dancing: 'Dancing Script', cursive;
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--rose-50);
+      font-family: var(--font-sans);
+      overflow-x: hidden;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::selection {
+      background: var(--rose-500);
+      color: #ffffff;
+    }
+
+    /* Typography Utilities */
+    .font-serif-title { font-family: var(--font-serif); }
+    .font-script-love { font-family: var(--font-script); }
+    .font-dancing { font-family: var(--font-dancing); }
+
+    /* Shimmer & Glow Animations */
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    .shimmer-text {
+      background: linear-gradient(90deg, #ffd1dc 0%, #ffffff 50%, #ffd1dc 100%);
+      background-size: 200% 100%;
+      animation: shimmer 4s infinite linear;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    @keyframes flameFlicker {
+      0%, 100% { transform: scale(1) rotate(-1deg); opacity: 0.95; filter: drop-shadow(0 0 10px rgba(251,191,36,0.9)); }
+      25% { transform: scale(1.08, 0.94) rotate(2deg); opacity: 1; filter: drop-shadow(0 0 14px rgba(251,191,36,1)); }
+      50% { transform: scale(0.96, 1.05) rotate(-2deg); opacity: 0.9; filter: drop-shadow(0 0 8px rgba(251,191,36,0.8)); }
+      75% { transform: scale(1.04, 0.98) rotate(1deg); opacity: 1; filter: drop-shadow(0 0 12px rgba(251,191,36,0.95)); }
+    }
+    .animate-flame { animation: flameFlicker 1.8s infinite ease-in-out; transform-origin: bottom center; }
+
+    @keyframes floatGentle {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(2deg); }
+    }
+    .animate-float { animation: floatGentle 5s ease-in-out infinite; }
+
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 25px rgba(244, 63, 94, 0.35), 0 0 50px rgba(168, 85, 247, 0.2); }
+      50% { box-shadow: 0 0 45px rgba(244, 63, 94, 0.65), 0 0 90px rgba(168, 85, 247, 0.45); }
+    }
+    .animate-pulse-glow { animation: pulseGlow 3s ease-in-out infinite; }
+
+    @keyframes spinSlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .spin-slow { animation: spinSlow 24s linear infinite; }
+    .spin-slow-rev { animation: spinSlow 36s linear infinite reverse; }
+
+    /* Glassmorphism */
+    .glass-panel {
+      background: rgba(26, 12, 38, 0.68);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .glass-panel-romantic {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(244, 63, 94, 0.09) 50%, rgba(168, 85, 247, 0.06) 100%);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 214, 226, 0.25);
+    }
+
+    /* Layout Containers */
+    .container {
+      width: 100%;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+    .text-center { text-align: center; }
+    .relative { position: relative; }
+    .z-20 { z-index: 20; }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 40;
+      padding: 12px 16px;
+    }
+    .navbar-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: 9999px;
+      padding: 10px 24px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+    .brand-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #f43f5e, #ec4899);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(244, 63, 94, 0.4);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+    }
+    .nav-btn {
+      background: none;
+      border: none;
+      color: var(--rose-200);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .nav-btn:hover { color: #fff; }
+    .celebrate-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 18px;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, #f43f5e, #ec4899);
+      border: none;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(244, 63, 94, 0.4);
+      transition: transform 0.2s;
+    }
+    .celebrate-btn:hover { transform: scale(1.05); }
+
+    /* Hero Section */
+    .hero-section {
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 16px 40px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      background: rgba(244, 63, 94, 0.12);
+      border: 1px solid rgba(251, 113, 133, 0.3);
+      color: var(--rose-300);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      margin-bottom: 20px;
+    }
+    .hero-title {
+      font-size: clamp(2.4rem, 7vw, 5rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      color: #fff;
+    }
+    .hero-subtitle {
+      font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+      color: rgba(254, 205, 211, 0.9);
+      margin-top: 10px;
+      margin-bottom: 24px;
+    }
+
+    /* Celestial Queen Centerpiece */
+    .centerpiece-wrap {
+      position: relative;
+      margin: 24px 0;
+    }
+    .centerpiece-halo {
+      position: absolute;
+      inset: -16px;
+      border-radius: 50%;
+      background: linear-gradient(90deg, #f43f5e, #ec4899, #fde047);
+      filter: blur(28px);
+      opacity: 0.6;
+    }
+    .centerpiece-ring-1 {
+      position: absolute;
+      inset: -24px;
+      border-radius: 50%;
+      border: 1px dashed rgba(251, 113, 133, 0.25);
+    }
+    .centerpiece-ring-2 {
+      position: absolute;
+      inset: -40px;
+      border-radius: 50%;
+      border: 1px dotted rgba(253, 224, 71, 0.18);
+    }
+    .centerpiece-circle {
+      position: relative;
+      width: clamp(240px, 60vw, 300px);
+      height: clamp(240px, 60vw, 300px);
+      border-radius: 50%;
+      padding: 8px;
+      background: linear-gradient(135deg, rgba(251, 113, 133, 0.4), rgba(168, 85, 247, 0.3), rgba(253, 224, 71, 0.3));
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .centerpiece-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, #1b0724 0%, #0d0114 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      border: 1px solid rgba(251, 113, 133, 0.3);
+    }
+
+    /* Buttons */
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: 20px 0;
+    }
+    .pill-btn {
+      padding: 10px 22px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: 1px solid rgba(251, 113, 133, 0.35);
+      background: rgba(244, 63, 94, 0.15);
+      color: var(--rose-100);
+    }
+    .pill-btn:hover {
+      background: rgba(244, 63, 94, 0.3);
+      transform: translateY(-2px);
+    }
+    .pill-btn-primary {
+      background: linear-gradient(90deg, #f59e0b, #f43f5e, #a855f7);
+      border: none;
+      color: #fff;
+      box-shadow: 0 4px 18px rgba(244, 63, 94, 0.35);
+    }
+    .pill-btn-primary:hover {
+      transform: translateY(-2px) scale(1.02);
+    }
+
+    /* Countdown Section */
+    .countdown-card {
+      border-radius: 28px;
+      padding: clamp(20px, 4vw, 40px);
+      margin: 40px auto;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+    }
+    .time-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin: 24px 0;
+    }
+    @media (max-width: 600px) {
+      .time-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .time-box {
+      background: rgba(12, 3, 20, 0.7);
+      border: 1px solid rgba(251, 113, 133, 0.25);
+      border-radius: 18px;
+      padding: 18px 10px;
+      text-align: center;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .time-box:hover {
+      transform: translateY(-3px);
+      border-color: rgba(251, 113, 133, 0.6);
+    }
+    .time-digit {
+      font-family: monospace, monospace;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1;
+      background: linear-gradient(180deg, #fff 0%, #ffe4e6 50%, #fda4af 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .time-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: var(--rose-300);
+      margin-top: 6px;
+      text-transform: uppercase;
+    }
+
+    /* Section Headers */
+    .section-wrap {
+      padding: 60px 0;
+    }
+    .sec-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 14px;
+      border-radius: 9999px;
+      background: rgba(244, 63, 94, 0.12);
+      border: 1px solid rgba(251, 113, 133, 0.25);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      color: var(--rose-300);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .sec-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .sec-desc {
+      font-size: 14px;
+      color: rgba(254, 205, 211, 0.75);
+      max-width: 540px;
+      margin: 0 auto 36px;
+    }
+
+    /* Love Letters Grid */
+    .letters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .letter-card {
+      border-radius: 20px;
+      padding: 24px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 270px;
+      transition: all 0.25s;
+    }
+    .letter-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(251, 113, 133, 0.6);
+      box-shadow: 0 12px 30px rgba(244, 63, 94, 0.25);
+    }
+    .wax-seal {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #e11d48, #9f1239);
+      border: 1px solid rgba(253, 224, 71, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+      color: #fff;
+    }
+
+    /* Reasons Grid */
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+    }
+    .reason-card {
+      border-radius: 20px;
+      padding: 22px;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .reason-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(251, 113, 133, 0.5);
+    }
+    .reason-card.active {
+      background: linear-gradient(135deg, rgba(80, 7, 36, 0.8), rgba(59, 7, 100, 0.8));
+      border-color: rgba(251, 113, 133, 0.6);
+      box-shadow: 0 10px 28px rgba(244, 63, 94, 0.25);
+    }
+
+    /* Cake Section */
+    .cake-container {
+      width: 280px;
+      margin: 20px auto 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .candles-row {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin-bottom: 2px;
+      z-index: 10;
+    }
+    .candle {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .candle-flame {
+      width: 14px;
+      height: 24px;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      background: linear-gradient(0deg, #f97316 0%, #fde047 60%, #fff 100%);
+    }
+    .candle-stick {
+      width: 12px;
+      height: 48px;
+      border-radius: 3px 3px 0 0;
+      background: linear-gradient(90deg, #f43f5e, #fda4af, #f43f5e);
+    }
+    .cake-tier-1 {
+      width: 180px;
+      height: 60px;
+      border-radius: 16px 16px 0 0;
+      background: linear-gradient(90deg, #fb7185, #f43f5e, #fb7185);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-top: 2px solid rgba(255, 255, 255, 0.4);
+    }
+    .cake-tier-2 {
+      width: 230px;
+      height: 60px;
+      background: linear-gradient(90deg, #f43f5e, #e11d48, #f43f5e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-top: 2px solid rgba(255, 255, 255, 0.3);
+    }
+    .cake-tier-3 {
+      width: 280px;
+      height: 70px;
+      border-radius: 0 0 16px 16px;
+      background: linear-gradient(90deg, #be123c, #9f1239, #be123c);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-top: 2px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    }
+    .cake-platter {
+      width: 310px;
+      height: 14px;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, #b45309, #fde047, #b45309);
+      margin-top: 3px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Secret Capsules */
+    .capsules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+    }
+    .capsule-card {
+      border-radius: 22px;
+      padding: 24px;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .capsule-card:hover { transform: translateY(-4px); }
+    .capsule-card.unlocked {
+      background: linear-gradient(135deg, rgba(80, 7, 36, 0.85), rgba(30, 4, 45, 0.95));
+      border-color: rgba(251, 113, 133, 0.5);
+      box-shadow: 0 10px 30px rgba(244, 63, 94, 0.2);
+    }
+
+    /* Modal */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .modal-box {
+      width: 100%;
+      max-width: 600px;
+      max-height: 88vh;
+      overflow-y: auto;
+      border-radius: 24px;
+      padding: 32px 24px;
+      position: relative;
+    }
+    .parchment-modal {
+      background: #fffaf5;
+      color: #292524;
+      border: 4px solid #edd8c4;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    }
+    .close-modal-btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: rgba(0, 0, 0, 0.08);
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      color: #444;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Audio Player Floating Widget */
+    .audio-player-widget {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 45;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .audio-btn {
+      background: rgba(20, 6, 30, 0.85);
+      border: 1px solid rgba(251, 113, 133, 0.35);
+      color: var(--rose-100);
+      padding: 10px 18px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      transition: all 0.2s;
+    }
+    .audio-btn.playing {
+      background: linear-gradient(90deg, #e11d48, #ec4899);
+      border-color: rgba(255, 255, 255, 0.3);
+      color: #fff;
+    }
+
+    /* Fullscreen Fireworks Canvas */
+    #fireworksCanvas, #ambientCanvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    #ambientCanvas { z-index: 10; }
+    #fireworksCanvas { z-index: 15; }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(251, 113, 133, 0.15);
+      padding: 50px 16px 40px;
+      text-align: center;
+      background: rgba(11, 3, 20, 0.8);
+      position: relative;
+      z-index: 20;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fullscreen Ambient Hearts & Sparkles Canvas -->
+  <canvas id="ambientCanvas"></canvas>
+
+  <!-- Fullscreen Romantic Digital Fireworks Canvas -->
+  <canvas id="fireworksCanvas"></canvas>
+
+  <!-- Sticky Top Navbar -->
+  <header class="navbar">
+    <div class="navbar-inner glass-panel">
+      <a href="#" class="brand" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
+        <div class="brand-icon">❤️</div>
+        <span class="font-serif-title" style="font-weight: 700; font-size: 15px; letter-spacing: 0.5px;">Gunnu's B'day</span>
+        <span style="font-size: 11px; color: var(--rose-300); font-family: monospace;">• Dec 22</span>
+      </a>
+
+      <nav class="nav-links">
+        <button class="nav-btn" onclick="scrollToId('countdown')">Countdown</button>
+        <button class="nav-btn" onclick="scrollToId('letters')">Letters</button>
+        <button class="nav-btn" onclick="scrollToId('reasons')">Reasons</button>
+        <button class="nav-btn" onclick="scrollToId('cake')">Wish Cake</button>
+        <button class="nav-btn" onclick="scrollToId('capsules')">Secret Notes</button>
+      </nav>
+
+      <div style="display: flex; gap: 8px; align-items: center;">
+        <button class="celebrate-btn" onclick="triggerMidnightCelebration()">
+          <span>Celebrate! 🎉</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative z-20">
+
+    <!-- 1. HERO SECTION -->
+    <section class="hero-section">
+      <div class="hero-badge animate-float">
+        ✨ <span>DECEMBER 22 • THE DAY AN ANGEL WAS BORN</span> ✨
+      </div>
+
+      <h1 class="hero-title font-serif-title">
+        Happy Birthday, <br />
+        <span class="shimmer-text font-script-love" style="font-size: clamp(3.2rem, 10vw, 6.5rem); display: inline-block; margin: 6px 0;">Gunnu</span>
+      </h1>
+
+      <p class="hero-subtitle font-dancing">
+        "You turn everyday moments into fairy tales. Today is all about celebrating your magic."
+      </p>
+
+      <!-- Celestial Queen Centerpiece (Zero Pictures, Pure Romantic Animation) -->
+      <div class="centerpiece-wrap">
+        <div class="centerpiece-halo animate-pulse-glow"></div>
+        <div class="centerpiece-ring-1 spin-slow"></div>
+        <div class="centerpiece-ring-2 spin-slow-rev"></div>
+
+        <div class="centerpiece-circle">
+          <div class="centerpiece-inner">
+            <div style="font-size: 38px; filter: drop-shadow(0 0 10px rgba(251,191,36,0.8)); margin-bottom: 4px;">👑</div>
+            <div style="font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--rose-300); text-transform: uppercase;">Birthday Queen</div>
+            <div class="font-script-love shimmer-text" style="font-size: 42px; font-weight: 700; line-height: 1;">Gunnu</div>
+            <div style="display: flex; align-items: center; gap: 6px; margin: 4px 0; font-size: 11px; color: var(--rose-200); font-family: monospace;">
+              <span>💖</span> Dec 22 <span>💖</span>
+            </div>
+            <div style="font-size: 11px; font-style: italic; color: rgba(255,241,242,0.7); font-family: var(--font-serif); margin-top: 4px;">
+              "Forever the brightest light in my world"
+            </div>
+          </div>
+        </div>
+
+        <div style="position: absolute; top: -6px; right: -6px; background: #e11d48; color: #fff; font-size: 10px; font-weight: bold; padding: 4px 10px; border-radius: 9999px; border: 1px solid rgba(253,224,71,0.5);" class="animate-float">
+          ⭐ Forever Yours
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="btn-row">
+        <button class="pill-btn" onclick="sendLove()" id="sendLoveBtn">
+          ❤️ <span>Send Love: </span><span id="loveCount" style="font-weight: bold; font-family: monospace;">520</span>
+        </button>
+
+        <button class="pill-btn pill-btn-primary" onclick="scrollToId('cake')">
+          🎂 <span>Make a Birthday Wish</span>
+        </button>
+
+        <button class="pill-btn" onclick="downloadSingleFileHtml()" title="Save this website as a standalone HTML file">
+          📥 <span>Save Single HTML</span>
+        </button>
+      </div>
+
+      <div style="margin-top: 14px; font-size: 12px; color: rgba(254,205,211,0.7); cursor: pointer;" onclick="scrollToId('countdown')">
+        Scroll to explore your surprises ↓
+      </div>
+    </section>
+
+    <!-- 2. COUNTDOWN TIMER SECTION -->
+    <section id="countdown" class="container">
+      <div class="countdown-card glass-panel-romantic">
+        <div class="text-center">
+          <div class="sec-badge">⏰ The Midnight Countdown • Dec 22</div>
+          <h2 class="sec-title font-serif-title" id="countdownHeading">Counting Down to Midnight, Dec 22</h2>
+          <p class="sec-desc">
+            Every passing tick is another heartbeat closer to celebrating the most beautiful soul in my universe.
+          </p>
+        </div>
+
+        <div class="time-grid">
+          <div class="time-box">
+            <div class="time-digit" id="daysVal">00</div>
+            <div class="time-label">Days</div>
+          </div>
+          <div class="time-box">
+            <div class="time-digit" id="hoursVal">00</div>
+            <div class="time-label">Hours</div>
+          </div>
+          <div class="time-box">
+            <div class="time-digit" id="minsVal">00</div>
+            <div class="time-label">Minutes</div>
+          </div>
+          <div class="time-box">
+            <div class="time-digit" id="secsVal">00</div>
+            <div class="time-label">Seconds</div>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding-top: 14px; border-top: 1px solid rgba(251,113,133,0.18);">
+          <div style="font-size: 13px; color: rgba(254,205,211,0.8); display: flex; align-items: center; gap: 8px;">
+            <span style="width: 8px; height: 8px; border-radius: 50%; background: #f43f5e; box-shadow: 0 0 10px #f43f5e; display: inline-block;"></span>
+            <span>Target: Midnight 00:00:00 (12:00 AM) Dec 22</span>
+          </div>
+          <button class="celebrate-btn" onclick="triggerMidnightCelebration()">
+            <span>Celebrate Gunnu Now 🎉</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. WAX-SEALED LOVE LETTERS SECTION -->
+    <section id="letters" class="section-wrap container">
+      <div class="text-center">
+        <div class="sec-badge">💌 Heartfelt Words for Gunnu</div>
+        <h2 class="sec-title font-serif-title">Letters Written Just for You</h2>
+        <p class="sec-desc">Click any sealed envelope to break the wax seal and read what is hidden inside.</p>
+      </div>
+
+      <div class="letters-grid">
+        <!-- Letter 1 -->
+        <div class="letter-card glass-panel" onclick="openLetter(0)">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span style="font-size: 12px; color: var(--rose-300); font-family: monospace;">December 22</span>
+              <span>✨</span>
+            </div>
+            <h3 class="font-serif-title" style="font-size: 19px; font-weight: 700; color: #fff; margin-bottom: 6px;">
+              To My Dearest Gunnu on Your Birthday
+            </h3>
+            <p style="font-size: 12px; color: var(--rose-300); margin-bottom: 14px;">A letter from the depths of my heart</p>
+            <p style="font-size: 13px; font-style: italic; color: rgba(255,241,242,0.7); line-height: 1.6; font-family: var(--font-serif);">
+              "Happy Birthday, my angel. From the moment you entered my life, every sunrise felt warmer..."
+            </p>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 20px; padding-top: 14px; border-top: 1px solid rgba(251,113,133,0.18);">
+            <span style="font-size: 11px; font-weight: 700; letter-spacing: 1px; color: var(--rose-300); text-transform: uppercase;">Open Envelope →</span>
+            <div class="wax-seal">❤️</div>
+          </div>
+        </div>
+
+        <!-- Letter 2 -->
+        <div class="letter-card glass-panel" onclick="openLetter(1)">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span style="font-size: 12px; color: var(--rose-300); font-family: monospace;">Dec 22 Memoir</span>
+              <span>✨</span>
+            </div>
+            <h3 class="font-serif-title" style="font-size: 19px; font-weight: 700; color: #fff; margin-bottom: 6px;">
+              The Little Things That Make You Irreplaceable
+            </h3>
+            <p style="font-size: 12px; color: var(--rose-300); margin-bottom: 14px;">Why nobody else compares</p>
+            <p style="font-size: 13px; font-style: italic; color: rgba(255,241,242,0.7); line-height: 1.6; font-family: var(--font-serif);">
+              "It is the way your eyes crinkle when you laugh, the gentle warmth of your hand in mine..."
+            </p>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 20px; padding-top: 14px; border-top: 1px solid rgba(251,113,133,0.18);">
+            <span style="font-size: 11px; font-weight: 700; letter-spacing: 1px; color: var(--rose-300); text-transform: uppercase;">Open Envelope →</span>
+            <div class="wax-seal">💖</div>
+          </div>
+        </div>
+
+        <!-- Letter 3 -->
+        <div class="letter-card glass-panel" onclick="openLetter(2)">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span style="font-size: 12px; color: var(--rose-300); font-family: monospace;">Special Edition</span>
+              <span>✨</span>
+            </div>
+            <h3 class="font-serif-title" style="font-size: 19px; font-weight: 700; color: #fff; margin-bottom: 6px;">
+              My Birthday Promises to You
+            </h3>
+            <p style="font-size: 12px; color: var(--rose-300); margin-bottom: 14px;">Words carved into tomorrow</p>
+            <p style="font-size: 13px; font-style: italic; color: rgba(255,241,242,0.7); line-height: 1.6; font-family: var(--font-serif);">
+              "I promise to stand beside you through every stormy sky and dance with you under every rainbow..."
+            </p>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 20px; padding-top: 14px; border-top: 1px solid rgba(251,113,133,0.18);">
+            <span style="font-size: 11px; font-weight: 700; letter-spacing: 1px; color: var(--rose-300); text-transform: uppercase;">Open Envelope →</span>
+            <div class="wax-seal">🌹</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. REASONS WHY I LOVE YOU SECTION -->
+    <section id="reasons" class="section-wrap container">
+      <div class="text-center">
+        <div class="sec-badge">💖 Why Gunnu is My Favorite Person</div>
+        <h2 class="sec-title font-serif-title">Endless Reasons to Adore You</h2>
+        <p class="sec-desc">Tap each reason to reveal the sweet memories and thoughts behind it.</p>
+      </div>
+
+      <div class="reasons-grid">
+        <div class="reason-card glass-panel" onclick="toggleReason(this)">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            <span style="font-size: 22px;">😊</span>
+            <span style="font-size: 10px; font-weight: 700; text-transform: uppercase; color: var(--rose-300); background: rgba(244,63,94,0.15); padding: 3px 8px; border-radius: 9999px;">Pure Joy</span>
+          </div>
+          <h3 class="font-serif-title" style="font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 4px;">Your Radiant Laugh</h3>
+          <p style="font-size: 12px; color: rgba(254,205,211,0.8);">The sweetest sound in the entire world.</p>
+          <div class="reason-detail" style="display: none; margin-top: 10px; padding-top: 8px; border-top: 1px solid rgba(251,113,133,0.2); font-size: 13px; font-style: italic; color: var(--rose-100); line-height: 1.5;">
+            "Whenever you laugh from your stomach, your entire face glows. It is instantly contagious and washes away all my stress in a heartbeat."
+          </div>
+        </div>
+
+        <div class="reason-card glass-panel" onclick="toggleReason(this)">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            <span style="font-size: 22px;">❤️</span>
+            <span style="font-size: 10px; font-weight: 700; text-transform: uppercase; color: var(--rose-300); background: rgba(244,63,94,0.15); padding: 3px 8px; border-radius: 9999px;">Sweet Soul</span>
+          </div>
+          <h3 class="font-serif-title" style="font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 4px;">Your Kind & Pure Heart</h3>
+          <p style="font-size: 12px; color: rgba(254,205,211,0.8);">You have genuine empathy for everyone.</p>
+          <div class="reason-detail" style="display: none; margin-top: 10px; padding-top: 8px; border-top: 1px solid rgba(251,113,133,0.2); font-size: 13px; font-style: italic; color: var(--rose-100); line-height: 1.5;">
+            "The compassion you show to those around you is so rare. You notice when someone is quiet, cheer people up, and love without keeping score."
+          </div>
+        </div>
+
+        <div class="reason-card glass-panel" onclick="toggleReason(this)">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            <span style="font-size: 22px;">⭐</span>
+            <span style="font-size: 10px; font-weight: 700; text-transform: uppercase; color: var(--rose-300); background: rgba(244,63,94,0.15); padding: 3px 8px; border-radius: 9999px;">Breathtaking</span>
+          </div>
+          <h3 class="font-serif-title" style="font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 4px;">Your Sparkling Eyes</h3>
+          <p style="font-size: 12px; color: rgba(254,205,211,0.8);">Deep, expressive, and brimming with life.</p>
+          <div class="reason-detail" style="display: none; margin-top: 10px; padding-top: 8px; border-top: 1px solid rgba(251,113,133,0.2); font-size: 13px; font-style: italic; color: var(--rose-100); line-height: 1.5;">
+            "When you talk about things you love or dream of, your eyes hold entire galaxies. I could get lost looking into them forever."
+          </div>
+        </div>
+
+        <div class="reason-card glass-panel" onclick="toggleReason(this)">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            <span style="font-size: 22px;">☀️</span>
+            <span style="font-size: 10px; font-weight: 700; text-transform: uppercase; color: var(--rose-300); background: rgba(244,63,94,0.15); padding: 3px 8px; border-radius: 9999px;">My Sanctuary</span>
+          </div>
+          <h3 class="font-serif-title" style="font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 4px;">The Warmth You Bring</h3>
+          <p style="font-size: 12px; color: rgba(254,205,211,0.8);">Any place feels like home with you.</p>
+          <div class="reason-detail" style="display: none; margin-top: 10px; padding-top: 8px; border-top: 1px solid rgba(251,113,133,0.2); font-size: 13px; font-style: italic; color: var(--rose-100); line-height: 1.5;">
+            "Home isn’t four walls; it’s being next to you. Your presence gives me a calm and certainty that I never knew before we met."
+          </div>
+        </div>
+
+        <div class="reason-card glass-panel" onclick="toggleReason(this)">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            <span style="font-size: 22px;">💎</span>
+            <span style="font-size: 10px; font-weight: 700; text-transform: uppercase; color: var(--rose-300); background: rgba(244,63,94,0.15); padding: 3px 8px; border-radius: 9999px;">Queen</span>
+          </div>
+          <h3 class="font-serif-title" style="font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 4px;">Your Grace & Elegance</h3>
+          <p style="font-size: 12px; color: rgba(254,205,211,0.8);">Effortlessly charming in every situation.</p>
+          <div class="reason-detail" style="display: none; margin-top: 10px; padding-top: 8px; border-top: 1px solid rgba(251,113,133,0.2); font-size: 13px; font-style: italic; color: var(--rose-100); line-height: 1.5;">
+            "Whether you are all dressed up for a festive occasion or cozy in your favorite clothes, your effortless grace takes my breath away."
+          </div>
+        </div>
+
+        <div class="reason-card glass-panel" onclick="toggleReason(this)">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            <span style="font-size: 22px;">🧭</span>
+            <span style="font-size: 10px; font-weight: 700; text-transform: uppercase; color: var(--rose-300); background: rgba(244,63,94,0.15); padding: 3px 8px; border-radius: 9999px;">Soulmate</span>
+          </div>
+          <h3 class="font-serif-title" style="font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 4px;">My True North & Best Friend</h3>
+          <p style="font-size: 12px; color: rgba(254,205,211,0.8);">The one I share every secret with.</p>
+          <div class="reason-detail" style="display: none; margin-top: 10px; padding-top: 8px; border-top: 1px solid rgba(251,113,133,0.2); font-size: 13px; font-style: italic; color: var(--rose-100); line-height: 1.5;">
+            "You are the first person I want to text with good news or silly moments. You know me better than anyone, and I love you endlessly for it."
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. INTERACTIVE BIRTHDAY WISH CAKE SECTION -->
+    <section id="cake" class="section-wrap container text-center">
+      <div class="glass-panel-romantic countdown-card">
+        <div class="sec-badge">🎂 Interactive Birthday Ritual</div>
+        <h2 class="sec-title font-serif-title">Make a Wish, Gunnu</h2>
+        <p class="sec-desc">Tap each candle flame to extinguish it, or click the button below to blow them all out together!</p>
+
+        <!-- 3D Layered Birthday Cake (Pure HTML/CSS) -->
+        <div class="cake-container">
+          <!-- 5 Candles -->
+          <div class="candles-row" id="candlesRow">
+            <div class="candle" onclick="blowCandle(0)"><div class="candle-flame animate-flame" id="flame-0"></div><div class="candle-stick"></div></div>
+            <div class="candle" onclick="blowCandle(1)"><div class="candle-flame animate-flame" id="flame-1"></div><div class="candle-stick" style="background: linear-gradient(90deg, #fde047, #fef08a, #fde047);"></div></div>
+            <div class="candle" onclick="blowCandle(2)"><div class="candle-flame animate-flame" id="flame-2"></div><div class="candle-stick"></div></div>
+            <div class="candle" onclick="blowCandle(3)"><div class="candle-flame animate-flame" id="flame-3"></div><div class="candle-stick" style="background: linear-gradient(90deg, #fde047, #fef08a, #fde047);"></div></div>
+            <div class="candle" onclick="blowCandle(4)"><div class="candle-flame animate-flame" id="flame-4"></div><div class="candle-stick"></div></div>
+          </div>
+
+          <div class="cake-tier-1">
+            <span class="font-script-love" style="font-size: 32px; color: #fff; font-weight: bold; text-shadow: 0 2px 8px rgba(0,0,0,0.4);">Gunnu</span>
+          </div>
+          <div class="cake-tier-2">
+            <div style="display: flex; gap: 8px;"><span>💖</span><span>✨</span><span>💖</span></div>
+          </div>
+          <div class="cake-tier-3">
+            <span style="font-size: 11px; font-weight: 700; letter-spacing: 2px; color: #fff; text-transform: uppercase;">Happy Birthday • Dec 22</span>
+          </div>
+          <div class="cake-platter"></div>
+        </div>
+
+        <div style="max-width: 420px; margin: 0 auto;" id="wishFormWrap">
+          <input type="text" id="wishInput" placeholder="Type your secret birthday wish here (optional)..." style="width: 100%; padding: 12px 20px; border-radius: 9999px; background: rgba(12,3,20,0.8); border: 1px solid rgba(251,113,133,0.35); color: #fff; font-size: 13px; text-align: center; margin-bottom: 12px; outline: none;">
+          <button class="pill-btn pill-btn-primary" style="width: 100%; justify-content: center; padding: 14px;" onclick="blowAllCandles()">
+            🔥 <span>Blow Out Candles & Make a Wish!</span>
+          </button>
+        </div>
+
+        <div id="wishResultBox" style="display: none; margin-top: 20px; padding: 24px; border-radius: 20px; background: rgba(20,5,30,0.85); border: 2px solid rgba(253,224,71,0.5);">
+          <div style="font-size: 30px; margin-bottom: 8px;">✨ 🎂 ✨</div>
+          <h3 class="font-serif-title" style="font-size: 22px; color: var(--amber-300); font-weight: bold;">Your Wish Has Been Sent to the Stars!</h3>
+          <p id="wishResultText" style="font-size: 14px; font-style: italic; color: #fff; margin: 10px 0; font-family: var(--font-serif);">
+            "May every happiness in the world find its way to you, Gunnu. You deserve all the stars and all the love."
+          </p>
+          <button class="pill-btn" onclick="relightCandles()" style="margin-top: 10px;">
+            🔄 <span>Relight Candles</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. OUR SECRET LOVE CAPSULES SECTION -->
+    <section id="capsules" class="section-wrap container">
+      <div class="text-center">
+        <div class="sec-badge">🔒 Private Whispers for Gunnu</div>
+        <h2 class="sec-title font-serif-title">Our Secret Love Capsules</h2>
+        <p class="sec-desc">Special thoughts and feelings written solely from my heart to yours. Tap each capsule to reveal its secret message.</p>
+      </div>
+
+      <div class="capsules-grid">
+        <div class="capsule-card glass-panel unlocked" onclick="toggleCapsule(this)">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <span style="font-size: 11px; font-weight: 700; color: var(--rose-300); background: rgba(244,63,94,0.15); padding: 3px 10px; border-radius: 9999px;">🌹 Eternal</span>
+            <span class="lock-icon" style="font-size: 16px;">🔓</span>
+          </div>
+          <h3 class="font-serif-title" style="font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 8px;">When You Walk Into a Room</h3>
+          <p class="capsule-body" style="font-size: 13px; font-style: italic; color: var(--rose-100); line-height: 1.6; font-family: var(--font-serif);">
+            "The entire room feels softer and kinder the moment you smile. I look at you and wonder how I got so lucky to call you mine."
+          </p>
+          <div style="font-size: 11px; color: var(--rose-400); margin-top: 10px;">❤️ Only for your eyes, Gunnu</div>
+        </div>
+
+        <div class="capsule-card glass-panel" onclick="toggleCapsule(this)">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <span style="font-size: 11px; font-weight: 700; color: var(--rose-300); background: rgba(244,63,94,0.15); padding: 3px 10px; border-radius: 9999px;">✨ Precious</span>
+            <span class="lock-icon" style="font-size: 16px;">🔒</span>
+          </div>
+          <h3 class="font-serif-title" style="font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 8px;">My Favorite Secret Memory</h3>
+          <p class="capsule-body" style="display: none; font-size: 13px; font-style: italic; color: var(--rose-100); line-height: 1.6; font-family: var(--font-serif);">
+            "That evening when you held my hand and we laughed uncontrollably at the smallest joke. Time stopped, and in that moment, I knew you were the only one for me."
+          </p>
+          <div class="capsule-preview" style="font-size: 12px; color: var(--rose-300); font-style: italic;">Tap to unlock this private thought...</div>
+        </div>
+
+        <div class="capsule-card glass-panel" onclick="toggleCapsule(this)">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <span style="font-size: 11px; font-weight: 700; color: var(--rose-300); background: rgba(244,63,94,0.15); padding: 3px 10px; border-radius: 9999px;">💖 Always</span>
+            <span class="lock-icon" style="font-size: 16px;">🔒</span>
+          </div>
+          <h3 class="font-serif-title" style="font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 8px;">A Birthday Promise for Midnight</h3>
+          <p class="capsule-body" style="display: none; font-size: 13px; font-style: italic; color: var(--rose-100); line-height: 1.6; font-family: var(--font-serif);">
+            "No matter how many birthdays pass, I promise to always look at you with the same wonder and adoration as I do right now."
+          </p>
+          <div class="capsule-preview" style="font-size: 12px; color: var(--rose-300); font-style: italic;">Tap to unlock this private thought...</div>
+        </div>
+
+        <div class="capsule-card glass-panel" onclick="toggleCapsule(this)">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <span style="font-size: 11px; font-weight: 700; color: var(--rose-300); background: rgba(244,63,94,0.15); padding: 3px 10px; border-radius: 9999px;">👑 My Queen</span>
+            <span class="lock-icon" style="font-size: 16px;">🔒</span>
+          </div>
+          <h3 class="font-serif-title" style="font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 8px;">Why Dec 22 is Sacred</h3>
+          <p class="capsule-body" style="display: none; font-size: 13px; font-style: italic; color: var(--rose-100); line-height: 1.6; font-family: var(--font-serif);">
+            "Because on December 22, the earth received its kindest, most radiant human being. I will celebrate your existence every single day."
+          </p>
+          <div class="capsule-preview" style="font-size: 12px; color: var(--rose-300); font-style: italic;">Tap to unlock this private thought...</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Persistent Floating Romantic Audio Serenade Widget -->
+  <div class="audio-player-widget">
+    <button class="audio-btn" id="audioToggleBtn" onclick="toggleRomanticMusic()">
+      <span id="musicWaveIcon">🎵</span>
+      <span id="musicStatusText">Gunnu's Song</span>
+    </button>
+  </div>
+
+  <!-- Parchment Letter Modal -->
+  <div id="letterModal" class="modal-backdrop" style="display: none;">
+    <div class="modal-box parchment-modal">
+      <button class="close-modal-btn" onclick="closeLetter()">✕</button>
+      <div style="border-bottom: 1px solid rgba(225, 29, 72, 0.2); padding-bottom: 10px; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+        <span style="color: #e11d48; font-size: 18px;">❤️</span>
+        <span style="font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #9f1239;" id="modalLetterDate">Gunnu's Birthday Letter</span>
+      </div>
+      <h3 class="font-serif-title" id="modalLetterTitle" style="font-size: 24px; font-weight: bold; margin-bottom: 14px; color: #1c1917;"></h3>
+      <div id="modalLetterBody" style="font-size: 15px; line-height: 1.7; color: #292524; font-family: var(--font-serif); white-space: pre-line; margin-bottom: 24px;"></div>
+      <div style="border-top: 1px solid rgba(225, 29, 72, 0.15); padding-top: 14px; text-align: right;">
+        <div style="font-size: 13px; font-style: italic; color: #57534e;" id="modalLetterClosing">Forever and always yours,</div>
+        <div class="font-script-love" style="font-size: 28px; color: #be123c; font-weight: bold; margin-top: 2px;" id="modalLetterSignature">With all my heart & soul ❤️</div>
+      </div>
+      <div style="text-align: center; margin-top: 20px;">
+        <button class="pill-btn" style="background: #1c1917; color: #fff; border: none;" onclick="closeLetter()">
+          Fold & Keep in Heart ❤️
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Midnight Grand Celebration Modal -->
+  <div id="celebrationModal" class="modal-backdrop" style="display: none;">
+    <div class="modal-box glass-panel-romantic" style="border: 2px solid rgba(251,113,133,0.5); text-align: center;">
+      <button class="close-modal-btn" style="color: #fff; background: rgba(255,255,255,0.15);" onclick="closeCelebration()">✕</button>
+      <div style="font-size: 40px; margin-bottom: 10px;">🎉 🎂 ✨</div>
+      <div class="sec-badge">DECEMBER 22 • MIDNIGHT CELEBRATION</div>
+      <h2 class="font-serif-title" style="font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 800; color: #fff; line-height: 1.15; margin: 10px 0;">
+        HAPPY BIRTHDAY, <br />
+        <span class="font-script-love shimmer-text" style="font-size: clamp(2.8rem, 8vw, 4.5rem);">Gunnu!</span>
+      </h2>
+      <p style="font-size: 14px; font-style: italic; color: rgba(255,241,242,0.9); font-family: var(--font-serif); max-width: 440px; margin: 14px auto; line-height: 1.6;">
+        "The clock struck midnight, and the world became a brighter, sweeter place. May this year bring you boundless love, dreams fulfilled, and moments that take your breath away."
+      </p>
+      <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
+        <button class="pill-btn pill-btn-primary" onclick="launchConfettiBurst()">
+          💖 <span>Shower Fireworks!</span>
+        </button>
+        <button class="pill-btn" onclick="closeCelebration()">
+          <span>Explore Website</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div style="font-size: 20px; margin-bottom: 12px;">✨ ❤️ ✨</div>
+      <div class="font-script-love" style="font-size: 34px; color: var(--rose-300);">Happy Birthday, my sweet Gunnu</div>
+      <p style="font-size: 13px; color: rgba(254,205,211,0.7); max-width: 480px; margin: 8px auto 20px; font-family: var(--font-serif);">
+        Crafted with all the love, devotion, and joy in the universe. Dec 22 is your day, and every day is a celebration of having you in my life.
+      </p>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px;">
+        <button class="pill-btn" onclick="triggerMidnightCelebration()">
+          ✨ <span>Replay Midnight Celebration</span>
+        </button>
+        <button class="pill-btn" onclick="downloadSingleFileHtml()">
+          📥 <span>Download HTML File</span>
+        </button>
+        <button class="pill-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+          ↑ <span>Top</span>
+        </button>
+      </div>
+      <div style="font-size: 11px; color: rgba(254,205,211,0.4); margin-top: 24px;">
+        December 22 Birthday Edition • Pure HTML & Animated Magic
+      </div>
+    </div>
+  </footer>
+
+  <!-- Single Standalone Embedded JavaScript Engine -->
+  <script>
+    // Smooth scroll helper
+    function scrollToId(id) {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // 1. DYNAMIC COUNTDOWN TIMER TO DEC 22 MIDNIGHT
+    function updateCountdown() {
+      const now = new Date();
+      const currentYear = now.getFullYear();
+      const currentMonth = now.getMonth(); // 11 is December
+      const currentDay = now.getDate();
+
+      let targetYear = currentYear;
+      const isBirthday = currentMonth === 11 && currentDay === 22;
+
+      if (currentMonth === 11 && currentDay > 22) {
+        targetYear = currentYear + 1;
+      }
+
+      const targetDate = new Date(targetYear, 11, 22, 0, 0, 0, 0);
+      let diff = targetDate.getTime() - now.getTime();
+
+      if (diff < 0 && !isBirthday) {
+        diff = new Date(targetYear + 1, 11, 22, 0, 0, 0, 0).getTime() - now.getTime();
+      }
+
+      const totalSeconds = Math.max(0, Math.floor(diff / 1000));
+      const days = Math.floor(totalSeconds / 86400);
+      const hours = Math.floor((totalSeconds % 86400) / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+
+      const pad = (n) => (n < 10 ? '0' + n : n);
+
+      document.getElementById('daysVal').innerText = pad(days);
+      document.getElementById('hoursVal').innerText = pad(hours);
+      document.getElementById('minsVal').innerText = pad(minutes);
+      document.getElementById('secsVal').innerText = pad(seconds);
+
+      const heading = document.getElementById('countdownHeading');
+      if (isBirthday) {
+        heading.innerHTML = '<span class="shimmer-text">Today is Gunnu\'s Special Day! 🎉</span>';
+      }
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // 2. LOVE COUNTER
+    let loveCount = 520;
+    function sendLove() {
+      loveCount++;
+      document.getElementById('loveCount').innerText = loveCount;
+      playSparkleAudio();
+      launchHeartFirework(window.innerWidth / 2, window.innerHeight * 0.4);
+    }
+
+    // 3. WAX LETTERS DATA & MODAL
+    const lettersData = [
+      {
+        date: "December 22",
+        title: "To My Dearest Gunnu on Your Birthday",
+        body: "My Dearest Gunnu,\n\nToday belongs entirely to you. Looking at you, I am constantly reminded of how lucky I am to share this journey with someone so pure-hearted, genuinely kind, and breathtakingly beautiful.\n\nYour smile has an effortless way of melting away my heaviest days. In every room you enter, you bring warmth, laughter, and an unspoken grace that leaves everyone in awe. On your birthday, my only wish is to give you even a fraction of the immense happiness and peace you give me every single day.\n\nMay this new year of your life be filled with dream-come-true moments, endless belly laughs, starlit evenings, and the realization that you are endlessly cherished.",
+        closing: "Forever and always yours,",
+        signature: "With all my heart & soul ❤️"
+      },
+      {
+        date: "Dec 22 Memoir",
+        title: "The Little Things That Make You Irreplaceable",
+        body: "Dearest Gunnu,\n\nPeople often talk about love in grand gestures, but with you, my love grows in every small, quiet detail:\n\n• The magical sparkle in your eyes whenever you get excited about something you love.\n• Your infectious, bubbly laugh that instantly makes whatever is bothering me feel trivial.\n• The sweetness in your voice when you call my name.\n• The fierce loyalty, compassion, and gentleness you carry in everything you do.\n\nYou are not just my girlfriend, Gunnu; you are my best friend, my confidante, and the greatest blessing God ever placed in my path.",
+        closing: "With endless admiration,",
+        signature: "Yours completely ✨"
+      },
+      {
+        date: "Special Edition",
+        title: "My Birthday Promises to You",
+        body: "My sweet Gunnu,\n\nAs you turn another page in your story today, here are my promises to you:\n\n1. I promise to be your biggest cheerleader in every ambition and dream you pursue.\n2. I promise to make you laugh on days when you feel weary and hold your hand when you need comfort.\n3. I promise to listen, to understand, and to always choose you, every single day.\n4. I promise to celebrate your victories, guard your heart, and remind you how extraordinary you are.\n\nHappy Birthday, my queen. Here is to making memories that will outlast time.",
+        closing: "Sealed with all my love,",
+        signature: "Always by your side 🌹"
+      }
+    ];
+
+    function openLetter(idx) {
+      const l = lettersData[idx];
+      document.getElementById('modalLetterDate').innerText = 'Gunnu\'s Birthday Letter • ' + l.date;
+      document.getElementById('modalLetterTitle').innerText = l.title;
+      document.getElementById('modalLetterBody').innerText = l.body;
+      document.getElementById('modalLetterClosing').innerText = l.closing;
+      document.getElementById('modalLetterSignature').innerText = l.signature;
+      document.getElementById('letterModal').style.display = 'flex';
+      playSparkleAudio();
+      launchHeartFirework(window.innerWidth / 2, window.innerHeight * 0.35);
+    }
+    function closeLetter() {
+      document.getElementById('letterModal').style.display = 'none';
+    }
+
+    // 4. REASONS EXPAND/COLLAPSE
+    function toggleReason(el) {
+      el.classList.toggle('active');
+      const detail = el.querySelector('.reason-detail');
+      if (detail) {
+        detail.style.display = detail.style.display === 'block' ? 'none' : 'block';
+      }
+      playSparkleAudio();
+    }
+
+    // 5. CAKE & CANDLES INTERACTION
+    let candlesLit = [true, true, true, true, true];
+    function blowCandle(idx) {
+      if (!candlesLit[idx]) return;
+      candlesLit[idx] = false;
+      const flame = document.getElementById('flame-' + idx);
+      if (flame) {
+        flame.style.display = 'none';
+      }
+      playSparkleAudio();
+      if (candlesLit.every(lit => !lit)) {
+        finishCakeWish();
+      }
+    }
+
+    function blowAllCandles() {
+      for (let i = 0; i < 5; i++) {
+        candlesLit[i] = false;
+        const flame = document.getElementById('flame-' + i);
+        if (flame) flame.style.display = 'none';
+      }
+      finishCakeWish();
+    }
+
+    function finishCakeWish() {
+      playCandleBlowAudio();
+      launchConfettiBurst();
+      const input = document.getElementById('wishInput');
+      const val = input.value.trim();
+      document.getElementById('wishFormWrap').style.display = 'none';
+      const resultBox = document.getElementById('wishResultBox');
+      const resultText = document.getElementById('wishResultText');
+      resultText.innerText = val ? `"${val}"` : "May every happiness in the world find its way to you, Gunnu. You deserve all the stars and all the love.";
+      resultBox.style.display = 'block';
+    }
+
+    function relightCandles() {
+      for (let i = 0; i < 5; i++) {
+        candlesLit[i] = true;
+        const flame = document.getElementById('flame-' + i);
+        if (flame) flame.style.display = 'block';
+      }
+      document.getElementById('wishFormWrap').style.display = 'block';
+      document.getElementById('wishResultBox').style.display = 'none';
+      playSparkleAudio();
+    }
+
+    // 6. SECRET CAPSULES
+    function toggleCapsule(el) {
+      el.classList.toggle('unlocked');
+      const isUnlocked = el.classList.contains('unlocked');
+      const icon = el.querySelector('.lock-icon');
+      const body = el.querySelector('.capsule-body');
+      const prev = el.querySelector('.capsule-preview');
+      if (icon) icon.innerText = isUnlocked ? '🔓' : '🔒';
+      if (body) body.style.display = isUnlocked ? 'block' : 'none';
+      if (prev) prev.style.display = isUnlocked ? 'none' : 'block';
+      if (isUnlocked) {
+        playSparkleAudio();
+        launchHeartFirework(window.innerWidth * 0.5, window.innerHeight * 0.4);
+      }
+    }
+
+    // 7. CELEBRATION MODAL
+    function triggerMidnightCelebration() {
+      document.getElementById('celebrationModal').style.display = 'flex';
+      playBirthdayAudio();
+      launchConfettiBurst();
+      for (let i = 0; i < 4; i++) {
+        setTimeout(() => {
+          launchHeartFirework(Math.random() * (window.innerWidth - 200) + 100, Math.random() * (window.innerHeight * 0.45) + 80);
+        }, i * 350);
+      }
+    }
+    function closeCelebration() {
+      document.getElementById('celebrationModal').style.display = 'none';
+    }
+
+    // 8. FULLSCREEN DIGITAL FIREWORKS ENGINE (CANVAS)
+    const fwCanvas = document.getElementById('fireworksCanvas');
+    const fwCtx = fwCanvas.getContext('2d');
+    let fwW = (fwCanvas.width = window.innerWidth);
+    let fwH = (fwCanvas.height = window.innerHeight);
+
+    window.addEventListener('resize', () => {
+      fwW = fwCanvas.width = window.innerWidth;
+      fwH = fwCanvas.height = window.innerHeight;
+      ambW = ambCanvas.width = window.innerWidth;
+      ambH = ambCanvas.height = window.innerHeight;
+    });
+
+    const fwRockets = [];
+    const fwParticles = [];
+    const fwColors = ['#ff4d79', '#ff758f', '#ffb3c1', '#ffd166', '#f72585', '#b5179e', '#fcf6bd'];
+
+    function launchRocket(startX, customTargetY, forceHeart) {
+      const x = startX !== undefined ? startX : Math.random() * (fwW * 0.8) + fwW * 0.1;
+      const targetY = customTargetY !== undefined ? customTargetY : Math.random() * (fwH * 0.42) + fwH * 0.12;
+      const speed = Math.sqrt(2 * 0.18 * (fwH - targetY)) * 0.3;
+
+      fwRockets.push({
+        x,
+        y: fwH,
+        targetY,
+        vx: (Math.random() - 0.5) * 1.5,
+        vy: -speed,
+        color: fwColors[Math.floor(Math.random() * fwColors.length)],
+        isHeart: forceHeart !== undefined ? forceHeart : Math.random() > 0.45,
+        trail: []
+      });
+    }
+
+    function launchHeartFirework(x, y) {
+      explodeFirework(x, y, '#ff4d79', true);
+    }
+
+    function explodeFirework(x, y, color, isHeart) {
+      if (isHeart) {
+        const points = 44;
+        const scale = Math.min(fwW, fwH) * 0.005;
+        for (let i = 0; i < points; i++) {
+          const t = (Math.PI * 2 * i) / points;
+          const hx = 16 * Math.pow(Math.sin(t), 3);
+          const hy = -(13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t));
+          fwParticles.push({
+            x, y,
+            vx: hx * 0.15 * scale,
+            vy: hy * 0.15 * scale,
+            color: Math.random() > 0.3 ? '#ff3366' : '#ffd166',
+            size: Math.random() * 2.5 + 2,
+            alpha: 1,
+            decay: Math.random() * 0.015 + 0.01
+          });
+        }
+      } else {
+        const count = 48;
+        for (let i = 0; i < count; i++) {
+          const angle = Math.random() * Math.PI * 2;
+          const spd = Math.random() * 4.5 + 1;
+          fwParticles.push({
+            x, y,
+            vx: Math.cos(angle) * spd,
+            vy: Math.sin(angle) * spd,
+            color,
+            size: Math.random() * 2.8 + 1.5,
+            alpha: 1,
+            decay: Math.random() * 0.02 + 0.012
+          });
+        }
+      }
+    }
+
+    // Ambient Random Fireworks Timer (triggers every 3 - 5.5s)
+    let nextRandomFw = Date.now() + 1500;
+    function checkRandomFireworks() {
+      const now = Date.now();
+      if (now >= nextRandomFw && fwRockets.length < 3) {
+        launchRocket();
+        nextRandomFw = now + Math.random() * 3000 + 2500;
+      }
+    }
+
+    // Tap/Click anywhere on page (outside buttons/modals) triggers a firework
+    window.addEventListener('click', (e) => {
+      if (e.target.closest('button') || e.target.closest('input') || e.target.closest('a') || e.target.closest('.modal-box')) {
+        return;
+      }
+      launchRocket(e.clientX, e.clientY, Math.random() > 0.35);
+    });
+
+    function renderFireworks() {
+      fwCtx.clearRect(0, 0, fwW, fwH);
+      checkRandomFireworks();
+
+      // Rockets
+      for (let i = fwRockets.length - 1; i >= 0; i--) {
+        const r = fwRockets[i];
+        r.x += r.vx;
+        r.y += r.vy;
+        r.vy += 0.12;
+
+        r.trail.push({ x: r.x, y: r.y, a: 1 });
+        if (r.trail.length > 7) r.trail.shift();
+
+        for (let j = 0; j < r.trail.length; j++) {
+          const t = r.trail[j];
+          t.a -= 0.12;
+          fwCtx.beginPath();
+          fwCtx.fillStyle = `rgba(255, 220, 180, ${Math.max(0, t.a)})`;
+          fwCtx.arc(t.x, t.y, 1.8, 0, Math.PI * 2);
+          fwCtx.fill();
+        }
+
+        fwCtx.beginPath();
+        fwCtx.fillStyle = r.color;
+        fwCtx.arc(r.x, r.y, 2.5, 0, Math.PI * 2);
+        fwCtx.fill();
+
+        if (r.y <= r.targetY || r.vy >= -0.5) {
+          explodeFirework(r.x, r.y, r.color, r.isHeart);
+          fwRockets.splice(i, 1);
+        }
+      }
+
+      // Particles
+      for (let i = fwParticles.length - 1; i >= 0; i--) {
+        const p = fwParticles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vx *= 0.97;
+        p.vy *= 0.97;
+        p.vy += 0.04;
+        p.alpha -= p.decay;
+
+        if (p.alpha <= 0) {
+          fwParticles.splice(i, 1);
+          continue;
+        }
+
+        fwCtx.save();
+        fwCtx.globalAlpha = p.alpha;
+        fwCtx.fillStyle = p.color;
+        fwCtx.beginPath();
+        fwCtx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        fwCtx.fill();
+        fwCtx.restore();
+      }
+
+      requestAnimationFrame(renderFireworks);
+    }
+    renderFireworks();
+
+    // 9. AMBIENT DRIFTING HEARTS CANVAS
+    const ambCanvas = document.getElementById('ambientCanvas');
+    const ambCtx = ambCanvas.getContext('2d');
+    let ambW = (ambCanvas.width = window.innerWidth);
+    let ambH = (ambCanvas.height = window.innerHeight);
+
+    const ambParticles = [];
+    const ambCount = window.innerWidth < 768 ? 28 : 55;
+    for (let i = 0; i < ambCount; i++) {
+      ambParticles.push({
+        x: Math.random() * ambW,
+        y: Math.random() * ambH,
+        size: Math.random() * 8 + 4,
+        speedY: -(Math.random() * 0.6 + 0.2),
+        speedX: (Math.random() - 0.5) * 0.4,
+        alpha: Math.random() * 0.5 + 0.2,
+        color: Math.random() > 0.4 ? 'rgba(255, 182, 193,' : 'rgba(253, 224, 71,'
+      });
+    }
+
+    function drawAmbientHeart(ctx, x, y, size) {
+      ctx.beginPath();
+      const top = size * 0.3;
+      ctx.moveTo(x, y + top);
+      ctx.bezierCurveTo(x, y, x - size / 2, y, x - size / 2, y + top);
+      ctx.bezierCurveTo(x - size / 2, y + (size + top) / 2, x, y + (size + top) / 1.4, x, y + size);
+      ctx.bezierCurveTo(x, y + (size + top) / 1.4, x + size / 2, y + (size + top) / 2, x + size / 2, y + top);
+      ctx.bezierCurveTo(x + size / 2, y, x, y, x, y + top);
+      ctx.closePath();
+      ctx.fill();
+    }
+
+    function renderAmbient() {
+      ambCtx.clearRect(0, 0, ambW, ambH);
+      for (let i = 0; i < ambParticles.length; i++) {
+        const p = ambParticles[i];
+        p.y += p.speedY;
+        p.x += p.speedX;
+        if (p.y < -20) { p.y = ambH + 10; p.x = Math.random() * ambW; }
+        ambCtx.fillStyle = `${p.color} ${p.alpha})`;
+        drawAmbientHeart(ambCtx, p.x, p.y, p.size);
+      }
+      requestAnimationFrame(renderAmbient);
+    }
+    renderAmbient();
+
+    // 10. WEB AUDIO API SYNTHESIZER (No External mp3s)
+    let audioCtx = null;
+    let isMusicPlaying = false;
+    let musicTimer = null;
+
+    function initAudio() {
+      if (!audioCtx) {
+        const AC = window.AudioContext || window.webkitAudioContext;
+        if (AC) audioCtx = new AC();
+      }
+      if (audioCtx && audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+    }
+
+    function playTone(freq, start, dur, gainVal = 0.12) {
+      if (!audioCtx) return;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(freq, start);
+      gain.gain.setValueAtTime(0.0001, start);
+      gain.gain.exponentialRampToValueAtTime(gainVal, start + 0.06);
+      gain.gain.exponentialRampToValueAtTime(gainVal * 0.3, start + dur * 0.6);
+      gain.gain.exponentialRampToValueAtTime(0.0001, start + dur);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start(start);
+      osc.stop(start + dur);
+    }
+
+    function playSparkleAudio() {
+      initAudio();
+      if (!audioCtx) return;
+      const now = audioCtx.currentTime;
+      [523.25, 659.25, 783.99, 1046.50].forEach((f, i) => {
+        playTone(f, now + i * 0.06, 0.35, 0.1);
+      });
+    }
+
+    function playCandleBlowAudio() {
+      initAudio();
+      if (!audioCtx) return;
+      const now = audioCtx.currentTime;
+      [440, 554.37, 659.25, 880, 1108.73].forEach((f, i) => {
+        playTone(f, now + i * 0.07, 0.55, 0.12);
+      });
+    }
+
+    function playBirthdayAudio() {
+      initAudio();
+      if (!audioCtx) return;
+      const now = audioCtx.currentTime;
+      const notes = [
+        { f: 261.63, d: 0.28 },
+        { f: 261.63, d: 0.28 },
+        { f: 293.66, d: 0.55 },
+        { f: 261.63, d: 0.55 },
+        { f: 349.23, d: 0.55 },
+        { f: 329.63, d: 0.95 }
+      ];
+      let offset = 0;
+      notes.forEach((n) => {
+        playTone(n.f, now + offset, n.d, 0.2);
+        offset += n.d + 0.08;
+      });
+    }
+
+    function loopArpeggio() {
+      if (!isMusicPlaying || !audioCtx) return;
+      const chords = [
+        [261.63, 329.63, 392.00, 493.88],
+        [220.00, 261.63, 329.63, 392.00],
+        [174.61, 261.63, 329.63, 440.00],
+        [196.00, 246.94, 293.66, 392.00]
+      ];
+      const now = audioCtx.currentTime;
+      let off = 0;
+      chords.forEach((chord) => {
+        [...chord, chord[2]].forEach((freq) => {
+          playTone(freq, now + off, 0.8, 0.1);
+          off += 0.36;
+        });
+      });
+      musicTimer = setTimeout(loopArpeggio, off * 1000 - 200);
+    }
+
+    function toggleRomanticMusic() {
+      initAudio();
+      isMusicPlaying = !isMusicPlaying;
+      const btn = document.getElementById('audioToggleBtn');
+      const text = document.getElementById('musicStatusText');
+      if (isMusicPlaying) {
+        btn.classList.add('playing');
+        text.innerText = "Playing Gunnu's Song 💖";
+        loopArpeggio();
+        playSparkleAudio();
+      } else {
+        btn.classList.remove('playing');
+        text.innerText = "Play Music";
+        if (musicTimer) clearTimeout(musicTimer);
+      }
+    }
+
+    // 11. CONFETTI BURST (Embedded Pure JS Confetti)
+    function launchConfettiBurst() {
+      for (let i = 0; i < 40; i++) {
+        fwParticles.push({
+          x: window.innerWidth / 2,
+          y: window.innerHeight * 0.5,
+          vx: (Math.random() - 0.5) * 12,
+          vy: (Math.random() - 0.5) * 12 - 4,
+          color: fwColors[Math.floor(Math.random() * fwColors.length)],
+          size: Math.random() * 4 + 2,
+          alpha: 1,
+          decay: 0.012
+        });
+      }
+    }
+
+    // 12. DOWNLOAD SINGLE STANDALONE HTML FILE
+    function downloadSingleFileHtml() {
+      playSparkleAudio();
+      const htmlContent = '<!doctype html>' + document.documentElement.outerHTML;
+      const blob = new Blob([htmlContent], { type: 'text/html' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'gunnu_birthday_dec22.html';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(a.href);
+    }
+  </script>
+</body>
+</html>
